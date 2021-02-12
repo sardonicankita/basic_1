@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string conversion( string p, string a){
+    if(a=="PM"){
+        if(p[0]=='1' && p[1]=='2'){
+            p[0]=0;
+            p[1]=0;
+        } else {
+          p[0]=p[0]+1;
+          p[1]=p[1]+2;
+        }
+    }
+    return p;
+}
+
+
+int main(){
+    int t;
+    cin>>t;
+ while(t--){
+    string p,a;
+    cin>>p>>a;
+    string chef_time= conversion(p,a);
+    string friend_1;
+    string friend_2;
+    int n;
+    cin>>n;
+    for(int i=0; i<n; i++){string b,c,d,e;
+        cin>>b>>c>>d>>e;
+        friend_1=conversion(b,c);
+        friend_2= conversion(d,e);
+        if(friend_2>=friend_1){
+        if(chef_time>friend_1 && chef_time<friend_2){
+            cout<<"1";
+        }else cout<<"0";
+    }
+    cout<<endl;
+ }
+ return 0;
+}
